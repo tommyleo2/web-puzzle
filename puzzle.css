@@ -1,0 +1,141 @@
+body {
+    background: #BFFFBF;
+    margin: 0px;
+}
+
+.puzzle {
+    margin: 0 auto;
+    /* position: relative; */
+}
+
+.info {
+    text-align: center;
+    font-size: 60px;
+    font-family: monospace;
+}
+
+#win {
+    font-size: 0px;
+}
+
+#_win {
+    font-size: 60px;
+    font-family: monospace;
+    color: #FF3831;
+    position: absolute;
+    z-index: 3;
+    left: 140px;
+    top: 250px;
+}
+
+#timer, #step {
+    display: inline-block;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+.body {
+    width: 615px;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+}
+
+.pic {
+    width: 615px;
+    height: 615px;
+    margin: 0 auto;
+    position: relative;
+    transition: all 0.2s;
+    transition-delay: 0s;
+}
+
+.blur { 
+    -webkit-filter: blur(40px);
+    -moz-filter: blur(40px);
+    -ms-filter: blur(40px);    
+    filter: blur(40px);
+    transition: all 0.2s;
+    transition-delay: 0s;
+}
+
+.block {
+    background: url("pic/minions_2.jpg");
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    border: 3px solid #C5C5C5;
+    transition: all .1s;
+    transition-delay: 0s;
+    position: absolute;
+}
+
+.block:hover {
+    transition: all 0.2s;
+    transition-delay: 0s;
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.block:active {
+    transition: all .1s;
+    transition-delay: 0s;
+    transform: scale(1);
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 40px;
+    font-size: 30px;
+    font-family: monospace;
+    background: #4286F5;
+    color: white;
+    border: 0px;
+    outline: none;
+    box-shadow: 5px 5px 5px 0px #A2A3A5;
+    margin-top: 100px;
+    transition: all 0.5s;
+    transition-delay: 0s;
+}
+
+#shuffleButton {
+    width: 200px;
+    background: #C5C5C5;
+}
+
+#quit {
+    width: 120px;
+    background: #FF3831;
+}
+
+#ensure {
+    width: 150px;
+    background: #FF3831;
+}
+
+#restart {
+    width: 150px;
+    background: #4286F5;
+}
+
+button:hover {
+    transition: all 0.2s;
+    transition-delay: 0s;
+    transform: scale(1.1);
+}
+
+button:active {
+    transition: all 0.05s;
+    transition-delay: 0s;
+    transform: scale(0.9);
+}
+
+#shuffleButton:active {
+    transform: scale(1.1);
+}
+
+#shuffleButton:hover {
+    transform: scale(1);
+}
