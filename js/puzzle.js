@@ -3,6 +3,7 @@ var blank = {
     y: 3
 }
 var onGame = false;
+var blocks = document.getElementsByClassName("block");
 
 function startGame() {
     if (this.id == "shuffleButton") {
@@ -18,18 +19,20 @@ function startGame() {
             this.textContent = "Start";
             this.id = start;
             clearInterval(window.timer);
-            var blocks = document.getElementsByClassName("block");
             for (var i = 0; i < blocks.length; i++) {
                 blocks[i].style.left = 25 * blocks[i].initPosi.x + "%";
                 blocks[i].style.top = 25 * blocks[i].initPosi.y + "%";
+                blocks[i].posi.x = blocks[i].initPosi.x;
+                blocks[i].posi.y = blocks[i].initPosi.y;
             }
+            blank.x = 3;
+            blank.y = 3;
         }
     } else {
         var start = document.getElementById("start");
         var picContainer = document.getElementsByClassName("pic");
         var winBar = document.getElementById("_win");
         var count = 0;
-        var blocks = document.getElementsByClassName("block");
         var ldir = 1;//  record previous step
         var step = document.getElementById("step");
         var timer = document.getElementById("timer");
@@ -45,7 +48,7 @@ function startGame() {
         picContainer[0].className += " blur";
         window.shuffleTimer = setInterval(function() {
             /*
-              move the blank block to shuffle the blocks for 5s.
+              move the blank block to shuffle the blocks.
             */
             if (count == 500) {
                 start = document.getElementsByTagName("button");
@@ -69,17 +72,17 @@ function startGame() {
                     break;
                 }
             }
-            var move = 0;
-            while (blocks[move].posi.x != blank.x + moveX[direction] ||
-                   blocks[move].posi.y != blank.y + moveY[direction]) {//  find the right block to move
-                    move++;
+            var moveDir = 0;
+            while (blocks[moveDir].posi.x != blank.x + moveX[direction] ||
+                   blocks[moveDir].posi.y != blank.y + moveY[direction]) {//  find the right block to move
+                    moveDir++;
             }
-            blocks[move].posi.x = blank.x;
-            blocks[move].posi.y = blank.y;
+            blocks[moveDir].posi.x = blank.x;
+            blocks[moveDir].posi.y = blank.y;
             blank.x += moveX[direction];
             blank.y += moveY[direction];
-            blocks[move].style.left = 25 * blocks[move].posi.x + "%";
-            blocks[move].style.top = 25 * blocks[move].posi.y + "%";
+            blocks[moveDir].style.left = 25 * blocks[moveDir].posi.x + "%";
+            blocks[moveDir].style.top = 25 * blocks[moveDir].posi.y + "%";
         }, 5);
         onGame = true;
     }
@@ -146,9 +149,8 @@ function move() {
 
 window.onload = function() {
     var start = document.getElementsByTagName("button");
-    var picBlocks = document.getElementsByClassName("block");
-    for (var i = 0; i < picBlocks.length; i++) {
-        picBlocks[i].addEventListener("click", move);
+    for (var i = 0; i < blocks.length; i++) {
+        blocks[i].addEventListener("click", move);
     }
     start[0].addEventListener("click", startGame);
 }
