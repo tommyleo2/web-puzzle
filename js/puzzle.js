@@ -137,6 +137,7 @@ function move() {
                 var picContainer = document.getElementsByClassName("pic");
                 var winBar = document.getElementById("win");
                 var button = document.getElementById("quit");
+                clearInterval(window.timer);
                 picContainer[0].className += " blur";
                 winBar.id = "_win";
                 button.textContent = "Restart";

@@ -7,8 +7,9 @@ function createBlock() {
             block.className = "block";
             block.posi = {y: i, x: j};
             block.initPosi = {y: i, x: j};
-            block.style.backgroundPositionX = x.toString() + "%";
-            block.style.backgroundPositionY = y.toString() + "%";
+            block.style.backgroundPosition = x.toString() + "% " + y.toString() + "%";
+            //block.style.backgroundPositionX = x.toString() + "%";
+            //block.style.backgroundPositionY = y.toString() + "%";
             block.style.left = (j * 25).toString() + "%";
             block.style.top =  (i * 25).toString() + "%";
             blocks.appendChild(block);
